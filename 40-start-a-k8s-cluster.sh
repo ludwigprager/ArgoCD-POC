@@ -20,20 +20,18 @@ fi
 for cluster in $CLUSTERS; do
   if ! cluster-exists $cluster; then
 
-#   ./k3d cluster create $cluster \
-#     --api-port 6443 -p 8080:80@loadbalancer --agents 2 \
-#     --wait 
+  envsubst < k3d-config/${cluster}.yaml.tpl > k3d-config/${cluster}.yaml
 
-    ./k3d cluster create $cluster \
-      --config k3d-config/$cluster.yaml \
-      --wait 
+  ./k3d cluster create $cluster \
+    --config k3d-config/$cluster.yaml \
+    --wait 
 
   fi
 
   # create endpoint in cluster pointing to my primary IP address
-  kubectl apply -f manifest/namespace.yaml
-  export PRIMARY_IP=$(get-primary-ip)
-  envsubst < manifest/external-service.yaml.tpl | kubectl apply -nargocd -f -
+#  kubectl apply -f manifest/namespace.yaml
+#  export PRIMARY_IP=$(get-primary-ip)
+#  envsubst < manifest/external-service.yaml.tpl | kubectl apply -nargocd -f -
 
 done
 

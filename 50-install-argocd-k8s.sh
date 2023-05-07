@@ -8,10 +8,25 @@ cd $BASEDIR
 source ./functions.sh
 source ./set-env.sh
 
-# https://argo-cd.readthedocs.io/en/stable/#getting-started
 wget -nc https://github.com/argoproj/argo-cd/raw/v2.7.1/manifests/install.yaml
-#kubectl create namespace argocd
-kubectl apply -f install.yaml -n argocd
+# modify args to argocd server:
+my_args=" \ \ \ \ \ \ \ \ - --insecure\n        - --rootpath\n        - /argocd"
+sed "/.*\/usr\/local\/bin\/argocd-server/a ${my_args}" install.yaml > install.yaml.modified
+
+
+kubectl --context=k3d-argo-intern \
+  apply -f install.yaml.modified -n default \
+  || true
+
+kubectl --context=k3d-argo-intern \
+  apply -f manifest/ingress.yaml -n default \
+  || true
+
+# -n argocd \
+
+echo curl http://localhost:${INGRESS_PORT}/argocd
+
+sensible-browser http://localhost:${INGRESS_PORT}/argocd &
 
 exit 0
 
@@ -53,7 +68,7 @@ kubectl --context=k3d-core-app delete ingress podinfo -npodinfo
 
 kubectl --context=k3d-core-app apply -f manifest/ingress.yaml || true
 #curl http://localhost:8081
-sensible-browser http://localhost:8081 &
+sensible-browser http://localhost:8123 &
 #killall kubectl || true
 #
 #kubectl --context=k3d-core-app -npodinfo port-forward svc/podinfo 9898:9898 &
