@@ -24,9 +24,20 @@ kubectl --context=k3d-argo-intern \
 
 # -n argocd \
 
+#POD=$(kubectl get pod -l app.kubernetes.io/name=argocd-server -o jsonpath="{.items[0].metadata.name}")
+
+while [[ $(kubectl get pods -l app.kubernetes.io/name=argocd-server \
+           -o 'jsonpath={..status.conditions[?(@.type=="Ready")].status}') \
+           != "True" \
+      ]]; do 
+  echo "waiting for argo server to get ready" && sleep 10; 
+done
+
 echo curl http://localhost:${INGRESS_PORT}/argocd
 
 sensible-browser http://localhost:${INGRESS_PORT}/argocd &
+
+./print-console-links.sh 
 
 exit 0
 
