@@ -18,6 +18,22 @@ function get-a-token() {
   printf ${token}
 }
 
+function repo-exists() {
+  local token=$1
+  local repo_name=$2
+
+  result=$(
+    curl -s -X 'GET' \
+    "http://l02:3000/api/v1/repos/search?q=${repo_name}" \
+    -H 'accept: application/json'
+  )
+
+  data=$(echo $result | yq -r '.data[]')
+
+  [[ ! -z "$data"  ]]
+
+}
+
 function create-repo() {
   local token=$1
   local repo_name=$2

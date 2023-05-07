@@ -13,3 +13,4 @@ install.yaml
 k3d-config/argo-intern.yaml
 k3d-config/argo-dmz.yaml
 install.yaml.modified
+guestbook/

@@ -9,6 +9,7 @@ source ./set-env.sh
 
 
 ./20-start-gitea.sh
-#./30-create-environment-repositories.sh
+./30-create-environment-repositories.sh
 ./40-start-a-k8s-cluster.sh
 ./50-install-argocd-k8s.sh
+./60-register-applications.sh
