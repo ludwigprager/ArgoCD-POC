@@ -8,7 +8,7 @@ export GITEA_LP_PASSWORD=geheim
 
 export GIT_SSH_COMMAND="ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -i ${BASEDIR:-$(pwd)}/key" 
 
-export INGRESS_PORT_1="8123"
+export INGRESS_PORT="8123"
 
 export CLUSTERS=""
 export CLUSTER_PREFIX="argo-"

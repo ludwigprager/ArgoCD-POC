@@ -15,18 +15,18 @@ sed "/.*\/usr\/local\/bin\/argocd-server/a ${my_args}" install.yaml > install.ya
 
 
 kubectl --context=k3d-argo-intern \
-  apply -f install.yaml.modified -n default \
+  apply -f install.yaml.modified -n argocd \
   || true
 
 kubectl --context=k3d-argo-intern \
-  apply -f manifest/ingress.yaml -n default \
+  apply -f manifest/ingress.yaml \
   || true
 
 # -n argocd \
 
 #POD=$(kubectl get pod -l app.kubernetes.io/name=argocd-server -o jsonpath="{.items[0].metadata.name}")
 
-while [[ $(kubectl get pods -l app.kubernetes.io/name=argocd-server \
+while [[ $(kubectl get pods -nargocd -l app.kubernetes.io/name=argocd-server \
            -o 'jsonpath={..status.conditions[?(@.type=="Ready")].status}') \
            != "True" \
       ]]; do 

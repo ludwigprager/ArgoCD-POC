@@ -8,5 +8,6 @@ cd $BASEDIR
 source ./functions.sh
 source ./set-env.sh
 
-#envsubst < manifest/application.yaml.tpl | kubectl apply -nargocd -f -
-envsubst < manifest/application.yaml.tpl | kubectl apply -ndefault -f -
+export REPO=guestbook
+export PRIMARY_IP=$(get-primary-ip)
+envsubst < manifest/application.yaml.tpl | kubectl apply -nargocd -f -

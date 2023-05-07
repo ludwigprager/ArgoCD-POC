@@ -6,7 +6,7 @@ metadata:
 
   name: argo-application
 
-  namespace: default
+  namespace:  argocd
 
 spec:
 
@@ -14,17 +14,19 @@ spec:
 
   source:
     
-    repoURL: ssh://git@${GITEA}:8022/lp/${REPO}.git
+#   repoURL: ssh://git@${GITEA}:8022/lp/${REPO}.git
+#   repoURL: http://${GITEA}:3000/lp/${REPO}.git
+    repoURL: http://${PRIMARY_IP}:3000/lp/${REPO}.git
     
     targetRevision: HEAD
 
-    path: dev
+    path: .
 
   destination: 
 
     server: https://kubernetes.default.svc
 
-    namespace: myapp
+    namespace: default
 
   syncPolicy:
 

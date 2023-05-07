@@ -28,10 +28,11 @@ for cluster in $CLUSTERS; do
 
   fi
 
-  # create endpoint in cluster pointing to my primary IP address
-#  kubectl apply -f manifest/namespace.yaml
-#  export PRIMARY_IP=$(get-primary-ip)
-#  envsubst < manifest/external-service.yaml.tpl | kubectl apply -nargocd -f -
+kubectl apply -f manifest/namespace.yaml
+
+# create endpoint in cluster pointing to my primary IP address
+export PRIMARY_IP=$(get-primary-ip)
+envsubst < manifest/external-service.yaml.tpl | kubectl apply -nargocd -f -
 
 done
 

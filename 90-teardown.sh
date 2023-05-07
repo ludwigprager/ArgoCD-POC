@@ -12,9 +12,8 @@ set +e
 
 ./k3d cluster delete $CLUSTERS || true
 
-#mv FluxCD-CORE FluxCD-CORE.$RANDOM
-#mv FluxCD-tenant01 FluxCD-tenant01.$RANDOM
 mv kubeconfig kubeconfig.$RANDOM
+mv guestbook guestbook.$RANDOM
 
 docker-compose --project-directory container down
 
