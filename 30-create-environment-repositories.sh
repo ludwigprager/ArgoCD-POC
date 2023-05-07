@@ -8,7 +8,7 @@ source ./functions.sh
 source ./set-env.sh
 
 # 1. create the remote repo in gitea
-export token=$(get-a-token)
+token=$(get-a-token)
 
 REPO=guestbook
 
