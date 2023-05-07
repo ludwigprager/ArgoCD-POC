@@ -24,7 +24,7 @@ function repo-exists() {
 
   result=$(
     curl -s -X 'GET' \
-    "http://l02:3000/api/v1/repos/search?q=${repo_name}" \
+    "http://${GITEA}:3000/api/v1/repos/search?q=${repo_name}" \
     -H 'accept: application/json'
   )
 
