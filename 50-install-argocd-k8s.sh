@@ -35,6 +35,6 @@ done
 
 echo curl http://localhost:${INGRESS_PORT}/argocd
 
-sensible-browser http://localhost:${INGRESS_PORT}/argocd &
+#sensible-browser http://localhost:${INGRESS_PORT}/argocd &
 
 ./print-console-links.sh 
