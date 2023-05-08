@@ -15,7 +15,7 @@ echo
 echo "argocd:              http://${PRIMARY_IP}:${INGRESS_PORT}/argocd/"
 echo "argocd login:        admin : ${password}"
 echo
-echo "guestbook:           http://${PRIMARY_IP}:${INGRESS_PORT}/"
+echo "guestbook:           http://${PRIMARY_IP}:${INGRESS_PORT}/guestbook"
 echo "helm-guestbook:      http://${PRIMARY_IP}:${INGRESS_PORT}/helm-guestbook/"
 echo
 echo "fleet repo:          http://$GITEA:3000/explore/repos/"

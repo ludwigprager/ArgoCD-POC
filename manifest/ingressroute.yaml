@@ -8,6 +8,7 @@ spec:
   stripPrefix:
     prefixes:
       - /helm-guestbook
+      - /guestbook
 
 ---
 apiVersion: traefik.containo.us/v1alpha1
@@ -23,6 +24,14 @@ spec:
     kind: Rule
     services:
     - name: helm-guestbook
+      port: 80
+    middlewares:
+    - name: stripprefix
+      namespace: default
+  - match: PathPrefix(`/guestbook`)
+    kind: Rule
+    services:
+    - name: guestbook-ui
       port: 80
     middlewares:
     - name: stripprefix
