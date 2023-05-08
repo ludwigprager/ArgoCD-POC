@@ -1,0 +1,29 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: Middleware
+metadata:
+  name: stripprefix
+  namespace: default
+
+spec:
+  stripPrefix:
+    prefixes:
+      - /helm-guestbook
+
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: ingressroutebar
+
+spec:
+  entryPoints:
+    - web
+  routes:
+  - match: PathPrefix(`/helm-guestbook`)
+    kind: Rule
+    services:
+    - name: helm-guestbook
+      port: 80
+    middlewares:
+    - name: stripprefix
+      namespace: default

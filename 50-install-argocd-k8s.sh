@@ -19,7 +19,7 @@ kubectl --context=k3d-argo-intern \
   || true
 
 kubectl --context=k3d-argo-intern \
-  apply -f manifest/ingress.yaml \
+  apply -f manifest/ingress.argocd.yaml \
   || true
 
 # -n argocd \
