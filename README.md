@@ -1,9 +1,15 @@
 # ArgoCD POC
 
 This project is a ArgoCD playground to learn how to setup, use and configure ArgoCD without
-investing much time and without risking to damage running installations in your project.
+investing much time and without risking to damage running installations in your project.  
 
-You need a linux machine to run on.
+This project is self-contained and has a zero-footpring. The tear-down script will
+remove most traces from your experiments.
+
+
+## Prerequisites
+You need a linux machine to run on, any distribution should work fine. I used xubuntu.  
+docker, docker-compose, yq are required.
 
 ## How this POC works
 
@@ -15,20 +21,21 @@ With only few preconditions this POC will be set up in an isolated environment,
 increment a version number in a git repository, demonstrate a reconciliation adn torn down again.
 
 A launcher script will
-- start a local git git-server (gitea) in docker-compose
+- start a local git-server (gitea) in docker-compose
 - start a local kubernetes cluster (k3d)
 - install ArgoCD
-- make ArgoCD install a number of example applications
+ArgoCD then installs the example applications that are referenced in [the manifest](./manifest/application.yaml.tpl)
 
 You can then access the ArgoCD ui and the example applications via ingresses using your browser.
 
 # Usage
-In [the configuration file of this POC](./set-env.sh) select either `multi-cluster` or `multi-tenancy`.
-## Starten
+Clone this repo an run the start script:
+
 ```
 git clone https://github.com/ludwigprager/ArgoCD-POC.git
 ./ArgoCD-POC/10-deploy.sh
 ```
+It will take a few minutes to to get the installation up and accessible.
 
 This command will print all URLs along with the admin password to log into ArgoCD:
 ```
