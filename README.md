@@ -8,7 +8,7 @@ remove most traces from your experiments.
 
 
 ## Prerequisites
-You need a linux machine to run on, any distribution should work fine.
+You need a linux machine to run on, any distribution should work fine.  
 docker, docker-compose, yq are required.
 
 ## How this POC works
