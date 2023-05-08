@@ -10,7 +10,8 @@ source ./set-env.sh
 # 1. create the remote repo in gitea
 token=$(get-a-token)
 
-REPO=guestbook
+#REPO=guestbook
+for REPO in guestbook helm-guestbook; do
 
 if ! repo-exists $token ${REPO};
 then
@@ -28,3 +29,5 @@ if [[ ! -d ${BASEDIR}/${REPO} ]]; then
   git push --set-upstream poc main
 
 fi
+
+done

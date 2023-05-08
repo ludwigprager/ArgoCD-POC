@@ -13,7 +13,9 @@ set +e
 ./k3d cluster delete $CLUSTERS || true
 
 mv kubeconfig kubeconfig.$RANDOM
+
 mv guestbook guestbook.$RANDOM
+mv helm-guestbook helm-guestbook.$RANDOM
 
 docker-compose --project-directory container down
 
