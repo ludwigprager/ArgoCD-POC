@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-#set -eu
+set -eu
 BASEDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 cd $BASEDIR
 

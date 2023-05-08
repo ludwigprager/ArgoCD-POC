@@ -54,4 +54,4 @@ curl -X 'POST' \
  \"title\": \"key1\"
 }"
 
-sensible-browser http://$GITEA:3000/explore/repos/  &
+#sensible-browser http://$GITEA:3000/explore/repos/  &
