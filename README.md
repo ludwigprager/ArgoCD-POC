@@ -26,7 +26,7 @@ ArgoCD then installs the example applications that are referenced in [the manife
 You can then access the ArgoCD ui and the example applications via ingresses using your browser.
 
 # Usage
-Clone this repo an run the start script:
+Clone this repo and run the start script:
 
 ```
 git clone https://github.com/ludwigprager/ArgoCD-POC.git
