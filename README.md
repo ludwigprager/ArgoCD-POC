@@ -39,6 +39,6 @@ It will take a few minutes to to get the installation up and accessible.
 
 This command will print all URLs along with the admin password to log into ArgoCD:
 ```
-./ArgoCD-POC./print-console-links.sh 
+./ArgoCD-POC/print-console-links.sh 
 
 ```
