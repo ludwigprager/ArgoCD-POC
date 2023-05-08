@@ -17,7 +17,7 @@ ArgoCD surveys a git repository outside of the cluster.
 In regular intervals, it tests for a drift in configuration
 and attempt a reconciliation if found.
 
-The [launcher script](./ArgoCD-POC/10-deploy.sh) will
+The [launcher script](./10-deploy.sh) will
 - start a local git-server (gitea) in docker-compose
 - start a local kubernetes cluster (k3d)
 - install ArgoCD
