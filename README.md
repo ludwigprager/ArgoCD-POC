@@ -1,15 +1,14 @@
 # ArgoCD POC
 
-This project is a ArgoCD playground to learn how to setup, use and configure ArgoCD without
-investing much time and without risking to damage running installations in your project.  
+This project is an ArgoCD playground to install, configure and use ArgoCD
+in a matter of minutes and without risking to damage running installations.
 
-This project is self-contained and has a zero-footprint. The tear-down script will
+This project is self-contained and has a small footprint. The [tear-down script](./90-teardown.sh) will
 remove most traces from your experiments.
 
-
 ## Prerequisites
-You need a linux machine to run on, any distribution should work fine.  
-docker, docker-compose, yq, wget are required.
+- a linux machine. any distribution should work fine.  
+- docker, docker-compose, yq, wget installed
 
 ## How this POC works
 
@@ -32,7 +31,7 @@ Clone this repo and run the start script:
 git clone https://github.com/ludwigprager/ArgoCD-POC.git
 ./ArgoCD-POC/10-deploy.sh
 ```
-It will take a few minutes to to get the installation up and accessible.
+It takes a few minutes to to get the installation up and accessible.
 
 This command will print all URLs along with the admin password to log into ArgoCD:
 ```
