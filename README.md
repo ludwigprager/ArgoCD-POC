@@ -1,5 +1,21 @@
 # ArgoCD POC
 
+## TL;DR
+Clone this repo and run the start script:
+
+```
+git clone https://github.com/ludwigprager/ArgoCD-POC.git
+./ArgoCD-POC/10-deploy.sh
+```
+
+The next command prints the argocd admin password and the URLs to reach the demo apps:
+```
+./ArgoCD-POC/print-console-links.sh 
+
+```
+
+## Description
+
 This project is an ArgoCD playground to install, configure and use ArgoCD
 in a matter of minutes and without risking to damage running installations.
 
@@ -24,17 +40,10 @@ ArgoCD then installs the example applications that are referenced in [the manife
 
 You can then access the ArgoCD ui and the example applications via ingresses using your browser.
 
-# Usage
-Clone this repo and run the start script:
+# Script Properties
 
-```
-git clone https://github.com/ludwigprager/ArgoCD-POC.git
-./ArgoCD-POC/10-deploy.sh
-```
-It takes a few minutes to to get the installation up and accessible.
+The script adhere to the following principles:
 
-This command will print all URLs along with the admin password to log into ArgoCD:
-```
-./ArgoCD-POC/print-console-links.sh 
-
-```
+- idempotent
+- exit on first error
+- does not depend on the working directory of the caller
