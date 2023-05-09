@@ -23,7 +23,7 @@ This project is self-contained and has a small footprint. The [tear-down script]
 remove most traces from your experiments.
 
 ## Prerequisites
-- a linux machine. any distribution should work fine.  
+- a linux machine. Any distribution should work fine.  
 - docker, docker-compose, yq, wget installed
 
 ## How this POC works
