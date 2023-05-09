@@ -18,6 +18,7 @@ echo
 echo "guestbook:           http://${PRIMARY_IP}:${INGRESS_PORT}/guestbook"
 echo "helm-guestbook:      http://${PRIMARY_IP}:${INGRESS_PORT}/helm-guestbook/"
 echo "kustomize-guestbook: http://${PRIMARY_IP}:${INGRESS_PORT}/kustomize-guestbook/"
+echo "podinfo              http://${PRIMARY_IP}:${INGRESS_PORT}/podinfo/"
 echo
 echo "fleet repo:          http://$GITEA:3000/explore/repos/"
 echo "swagger:             http://${GITEA}:3000/api/swagger#"

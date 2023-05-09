@@ -10,6 +10,7 @@ spec:
       - /guestbook
       - /helm-guestbook
       - /kustomize-guestbook
+      - /podinfo
 
 ---
 
@@ -46,6 +47,15 @@ spec:
     services:
     - name: kustomize-guestbook-ui
       port: 80
+    middlewares:
+    - name: stripprefix
+      namespace: default
+
+  - match: PathPrefix(`/podinfo`)
+    kind: Rule
+    services:
+    - name: podinfo
+      port: 9898
     middlewares:
     - name: stripprefix
       namespace: default

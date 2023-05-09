@@ -15,4 +15,4 @@ export CLUSTER_PREFIX="argo-"
 CLUSTERS="${CLUSTERS} ${CLUSTER_PREFIX}intern"
 CLUSTERS="argo-intern"
 
-APPS="guestbook helm-guestbook kustomize-guestbook"
+APPS="guestbook helm-guestbook kustomize-guestbook podinfo"
