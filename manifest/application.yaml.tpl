@@ -2,7 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 
 metadata:
-  name: ${REPO}
+  name: ${app}
   namespace:  argocd
 
 spec:
@@ -10,7 +10,7 @@ spec:
   project: default
 
   source:
-    repoURL: http://${PRIMARY_IP}:3000/lp/${REPO}.git
+    repoURL: http://${PRIMARY_IP}:3000/lp/${app}.git
     targetRevision: HEAD
     path: .
 
