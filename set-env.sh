@@ -16,3 +16,5 @@ CLUSTERS="${CLUSTERS} ${CLUSTER_PREFIX}intern"
 CLUSTERS="argo-intern"
 
 APPS="guestbook helm-guestbook kustomize-guestbook podinfo"
+
+export http_proxy=""

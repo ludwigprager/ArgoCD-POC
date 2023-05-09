@@ -24,7 +24,7 @@ remove most traces from your experiments.
 
 ## Prerequisites
 - a linux machine. Any distribution should work fine.  
-- docker, docker-compose, yq, wget installed
+- docker, docker-compose, jq, yq, wget installed
 
 ## How this POC works
 
@@ -40,10 +40,15 @@ ArgoCD then installs the example applications that are referenced in [the manife
 
 You can then access the ArgoCD ui and the example applications via ingresses using your browser.
 
+# Possible Applications
+- promotion from pre-prod to prod
+- nanage multiple clusters with a single argocd server
+- resiliency tests
+- ArgoCD configuration
+
 # Script Properties
 
 The script adhere to the following principles:
-
 - idempotent
 - exit on first error
 - does not depend on the working directory of the caller
