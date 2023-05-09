@@ -10,24 +10,23 @@ source ./set-env.sh
 # 1. create the remote repo in gitea
 token=$(get-a-token)
 
-#REPO=guestbook
-for REPO in guestbook helm-guestbook; do
+for app in ${APPS}; do
 
-if ! repo-exists $token ${REPO};
-then
-  create-repo $token ${REPO}
-fi
+  if ! repo-exists $token ${app};
+  then
+    create-repo $token ${app}
+  fi
 
-if [[ ! -d ${BASEDIR}/${REPO} ]]; then
+  if [[ ! -d ${BASEDIR}/${app} ]]; then
 
-  cd ${BASEDIR}
-  git clone --origin poc ssh://git@${GITEA}:8022/lp/${REPO}.git
-  cd ${REPO}
-  cp -a ${BASEDIR}/example.${REPO}/* ${BASEDIR}/${REPO}/
-  git add .
-  git commit -m "Initial commit"
-  git push --set-upstream poc main
+    cd ${BASEDIR}
+    git clone --origin poc ssh://git@${GITEA}:8022/lp/${app}.git
+    cd ${app}
+    cp -a ${BASEDIR}/example.${app}/* ${BASEDIR}/${app}/
+    git add .
+    git commit -m "Initial commit"
+    git push --set-upstream poc main
 
-fi
+  fi
 
 done

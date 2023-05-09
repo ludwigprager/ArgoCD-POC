@@ -14,8 +14,9 @@ set +e
 
 mv kubeconfig kubeconfig.$RANDOM
 
-mv guestbook guestbook.$RANDOM
-mv helm-guestbook helm-guestbook.$RANDOM
+for app in ${APPS}; do
+  mv ${app} ${app}.$RANDOM
+done
 
 docker-compose --project-directory container down
 

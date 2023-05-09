@@ -7,10 +7,12 @@ metadata:
 spec:
   stripPrefix:
     prefixes:
-      - /helm-guestbook
       - /guestbook
+      - /helm-guestbook
+      - /kustomize-guestbook
 
 ---
+
 apiVersion: traefik.containo.us/v1alpha1
 kind: IngressRoute
 metadata:
@@ -20,14 +22,7 @@ spec:
   entryPoints:
     - web
   routes:
-  - match: PathPrefix(`/helm-guestbook`)
-    kind: Rule
-    services:
-    - name: helm-guestbook
-      port: 80
-    middlewares:
-    - name: stripprefix
-      namespace: default
+
   - match: PathPrefix(`/guestbook`)
     kind: Rule
     services:
@@ -36,3 +31,22 @@ spec:
     middlewares:
     - name: stripprefix
       namespace: default
+
+  - match: PathPrefix(`/helm-guestbook`)
+    kind: Rule
+    services:
+    - name: helm-guestbook
+      port: 80
+    middlewares:
+    - name: stripprefix
+      namespace: default
+
+  - match: PathPrefix(`/kustomize-guestbook`)
+    kind: Rule
+    services:
+    - name: kustomize-guestbook-ui
+      port: 80
+    middlewares:
+    - name: stripprefix
+      namespace: default
+

@@ -14,14 +14,5 @@ export CLUSTERS=""
 export CLUSTER_PREFIX="argo-"
 CLUSTERS="${CLUSTERS} ${CLUSTER_PREFIX}intern"
 CLUSTERS="argo-intern"
-#CLUSTERS="${CLUSTERS} ${CLUSTER_PREFIX}dmz"
 
-#CLUSTERS="${CLUSTERS} ${CLUSTER_PREFIX}core-app"
-#CLUSTERS="${CLUSTERS} ${CLUSTER_PREFIX}core-infra"
-#CLUSTERS="${CLUSTERS} ${CLUSTER_PREFIX}dmz-app"
-#CLUSTERS="${CLUSTERS} ${CLUSTER_PREFIX}dmz-infra"
-
-
-## hier den POC-type auswählen (der letzte gewinnt)
-#POC=multi-tenancy
-#POC=multi-cluster
+APPS="guestbook helm-guestbook kustomize-guestbook"
