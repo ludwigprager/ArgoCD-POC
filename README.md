@@ -1,5 +1,12 @@
 # ArgoCD POC
 
+## Description
+
+This project is an ArgoCD playground to install, configure and run ArgoCD
+in a matter of minutes without risking to damage running installations.  
+This project is self-contained and has a small footprint. The [tear-down script](./90-teardown.sh) will
+remove most traces from your experiments.
+
 ## TL;DR
 Clone this repo and run the start script:
 
@@ -12,13 +19,6 @@ Display URL endpoints created by this poc:
 ```
 ./ArgoCD-POC/print-console-links.sh 
 ```
-
-## Description
-
-This project is an ArgoCD playground to install, configure and run ArgoCD
-in a matter of minutes without risking to damage running installations.  
-This project is self-contained and has a small footprint. The [tear-down script](./90-teardown.sh) will
-remove most traces from your experiments.
 
 ## Prerequisites
 - a linux machine. Any distribution should work fine.  
