@@ -21,7 +21,7 @@ Display URL endpoints created by this poc:
 ```
 
 ## Prerequisites
-- a linux machine. Any distribution should work fine.  
+- a linux machine. Any distribution should work fine. Or macOS with Darwin.   
 - docker, docker-compose, jq, yq, wget installed
 
 ## How this POC works
