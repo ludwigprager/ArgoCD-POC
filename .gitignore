@@ -13,6 +13,13 @@ install.yaml
 k3d-config/argo-intern.yaml
 k3d-config/argo-dmz.yaml
 install.yaml.modified
+
 guestbook/
 helm-guestbook/
+kustomize-guestbook/
 podinfo/
+
+guestbook.[0-9]*
+helm-guestbook.[0-9]*
+kustomize-guestbook.[0-9]*
+podinfo.[0-9]*

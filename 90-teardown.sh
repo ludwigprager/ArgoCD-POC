@@ -12,10 +12,11 @@ set +e
 
 ./k3d cluster delete $CLUSTERS || true
 
-mv kubeconfig kubeconfig.$RANDOM
+MY_RANDOM=$RANDOM
+mv kubeconfig kubeconfig.${MY_RANDOM}
 
 for app in ${APPS}; do
-  mv ${app} ${app}.$RANDOM
+  mv ${app} ${app}.${MY_RANDOM}
 done
 
 docker-compose --project-directory container down

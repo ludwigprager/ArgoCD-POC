@@ -46,10 +46,10 @@ function create-repo() {
     -d "{\"name\":\"$repo_name\" }"
 }
 
-function kf() {
-  k get $(kubectl api-resources | grep -i flux | cut -d' ' -f1 | tr '\n' ',' | sed 's/,$//g') -A;
-}
-export -f kf
+#function kf() {
+#  k get $(kubectl api-resources | grep -i flux | cut -d' ' -f1 | tr '\n' ',' | sed 's/,$//g') -A;
+#}
+#export -f kf
 
 get-primary-ip() {
   local PRIMARY_IP=$(hostname -I | cut -d " " -f1)
