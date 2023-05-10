@@ -34,6 +34,7 @@ The [launcher script](./10-deploy.sh) will
 - start a local git-server (gitea) in docker-compose
 - start a local kubernetes cluster (k3d)
 - install ArgoCD
+
 ArgoCD in turn installs the example applications that are referenced in [the manifest](./manifest/application.yaml.tpl)
 
 Open the ArgoCD ui and the example applications in your browser.
