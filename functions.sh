@@ -52,7 +52,12 @@ function create-repo() {
 #export -f kf
 
 get-primary-ip() {
-  local PRIMARY_IP=$(hostname -I | cut -d " " -f1)
+  # no hostname -I on macOS
+  if [ "$(uname -o)" == Darwin ]; then
+    local PRIMARY_IP=$(ifconfig en0 | awk '/inet / {print $2; }' | egrep -v 127.0.0.1 | head -1)
+  else
+    local PRIMARY_IP=$(hostname -I | cut -d " " -f1)
+  fi
   printf ${PRIMARY_IP}
 }
 
@@ -68,7 +73,7 @@ function cluster-exists() {
     return 1
   else
     # 0 = true
-    return 0 
+    return 0
   fi
 }
 

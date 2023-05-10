@@ -7,7 +7,7 @@ cd $BASEDIR
 source ./functions.sh
 source ./set-env.sh
 
-sed -i 's@tag: 6.3.5@tag: 6.3.6@g' podinfo/values.yaml
+$SED -i 's@tag: 6.3.5@tag: 6.3.6@g' podinfo/values.yaml
 
 pushd podinfo/
 
@@ -25,6 +25,6 @@ while true; do
   clear
   kubectl get events --sort-by='.metadata.creationTimestamp' -A
 # ./flux get all
-  kubectl get po -npodinfo  -l     app.kubernetes.io/name=podinfo -o=json | jq -r '.items[0].spec.containers[0].image'
+  kubectl get po -npodinfo  -l app.kubernetes.io/name=podinfo -o=json | jq -r '.items[0].spec.containers[0].image'
   sleep 5
 done
