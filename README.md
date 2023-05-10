@@ -43,7 +43,7 @@ The applications were copied from the [argocd example repo](https://github.com/a
 [FluxCD example app](https://github.com/stefanprodan/podinfo).
 
 # Possible Applications
-- resiliency tests: ArgoCD autorepairs a number of properties, but details of effects are hard to discover without tests.
+- resiliency tests: ArgoCD autorepairs a number of properties, but details are hard to determine without practical usage.
 - promotion from pre-prod to prod: you can start a prod and pre-prod cluster with k3d and test your promotion code.
 - behaviour of ArgoCD in various circumstances, e.g. network failures, already present objects in kubernetes, RBAC properties et.al.
 - test the management of multiple clusters with a single argocd server instance
