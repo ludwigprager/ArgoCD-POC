@@ -22,4 +22,6 @@ export http_proxy=""
 # Use GNU's gsed when on macOS
 # If missing, you may want to install it with brew install gnu-sed
 export SED=sed
-test "$(uname -o)" == "Darwin" && export SED=gsed
+if [[ "$(uname -o)" == "Darwin" ]]; then
+SED=gsed
+fi
