@@ -40,7 +40,7 @@ Open the ArgoCD ui and the example applications in your browser.
 Call the [provided script](./print-console-links.sh) to see the URLs and the argocd admin password.
 
 The applications were copied from the [argocd example repo](https://github.com/argoproj/argocd-example-apps) and the
-[standard FluxCD example app](https://github.com/argoproj/argocd-example-apps).
+[FluxCD example app](https://github.com/stefanprodan/podinfo).
 
 # Possible Applications
 - manage multiple clusters with a single argocd server
