@@ -3,9 +3,9 @@
 ## Description
 
 This project is an ArgoCD playground to install, configure and run ArgoCD
-in a matter of minutes without risking to damage running installations.  
-This project is self-contained and has a small footprint. The [tear-down script](./90-teardown.sh) will
-remove most traces from your experiments.
+in a matter of minutes without affecting running installations.  
+It is self-contained and has a small footprint. The [tear-down script](./90-teardown.sh) will
+remove most traces when applied after use.
 
 ## TL;DR
 Clone this repo and run the start script:
