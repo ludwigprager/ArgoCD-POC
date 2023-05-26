@@ -22,7 +22,7 @@ Display URL endpoints created by this poc:
 
 ## Prerequisites
 - a linux machine. Any distribution should work fine. Or macOS with Darwin.   
-- docker, docker-compose, jq, yq, wget installed
+- docker, jq, yq, wget installed
 
 ## How this POC works
 
@@ -53,6 +53,7 @@ The applications were copied from the [argocd example repo](https://github.com/a
 # Script Properties
 
 The bash scripts adhere to the following principles:
+- dedicated versions. As opposed to implicit version number, leading to recommended or 'latest'.
 - idempotent
 - exit on first error
 - independent of the caller's working directory
