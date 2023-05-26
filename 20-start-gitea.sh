@@ -13,11 +13,11 @@ GITEA=${GITEA}
 EOF
 
 envsubst < container/gitea.app.ini.tpl > container/gitea.app.ini
-docker-compose --project-directory container up -d
+docker compose --project-directory container up -d
 
 is_healthy() {
     service="$1"
-    container_id="$(docker-compose   --project-directory container ps -q "$service")"
+    container_id="$(docker compose   --project-directory container ps -q "$service")"
     health_status="$(docker inspect -f "{{.State.Health.Status}}" "$container_id")"
 
     if [ "$health_status" = "healthy" ]; then

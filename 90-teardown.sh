@@ -19,5 +19,5 @@ for app in ${APPS}; do
   mv ${app} ${app}.${MY_RANDOM}
 done
 
-docker-compose --project-directory container down
+docker compose --project-directory container down
 

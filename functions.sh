@@ -1,13 +1,5 @@
 #!/usr/bin/env bash
 
-get-vault-address() {
-  local UNSEAL_KEY=$(docker-compose logs |  sed -n 's/.*Unseal Key: \(.*\)/\1/p')
-
-  printf 'http://127.0.0.1:8200'
-
-}
-export -f get-vault-address
-
 
 function get-a-token() {
   local response=$(curl -s -H "Content-Type: application/json" \
