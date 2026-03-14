@@ -4,9 +4,8 @@ set -eu
 BASEDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 cd $BASEDIR
 
-source ./functions.sh
-source ./set-env.sh
-
+./14-env.sh
+./15-install.sh
 
 ./20-start-gitea.sh
 ./30-create-environment-repositories.sh

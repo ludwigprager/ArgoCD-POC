@@ -5,8 +5,8 @@
 replicaCount: 1
 
 image:
-  repository: gcr.io/heptio-images/ks-guestbook-demo
-  tag: 0.1
+  repository: us-docker.pkg.dev/google-samples/containers/gke/gb-frontend
+  tag: v5
   pullPolicy: IfNotPresent
 
 service:

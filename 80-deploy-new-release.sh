@@ -4,10 +4,10 @@ set -eu
 BASEDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 cd $BASEDIR
 
-source ./functions.sh
-source ./set-env.sh
+source ./.env
 
-$SED -i 's@tag: 6.3.5@tag: 6.3.6@g' podinfo/values.yaml
+#$SED -i 's@tag: 6.3.5@tag: 6.3.6@g' podinfo/values.yaml
+sed -i 's@tag: 6.3.5@tag: 6.3.6@g' podinfo/values.yaml
 
 pushd podinfo/
 

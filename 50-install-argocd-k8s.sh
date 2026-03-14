@@ -4,14 +4,13 @@ set -eu
 BASEDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 cd $BASEDIR
 
-
-source ./functions.sh
-source ./set-env.sh
+source ./.env
 
 wget -nc https://github.com/argoproj/argo-cd/raw/v2.7.1/manifests/install.yaml
 # modify args to argocd server:
 my_args=" \ \ \ \ \ \ \ \ - --insecure\n        - --rootpath\n        - /argocd"
-$SED "/.*\/usr\/local\/bin\/argocd-server/a ${my_args}" install.yaml > install.yaml.modified
+#$SED "/.*\/usr\/local\/bin\/argocd-server/a ${my_args}" install.yaml > install.yaml.modified
+sed "/.*\/usr\/local\/bin\/argocd-server/a ${my_args}" install.yaml > install.yaml.modified
 
 
 kubectl --context=k3d-argo-intern \

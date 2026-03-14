@@ -23,3 +23,5 @@ guestbook.[0-9]*
 helm-guestbook.[0-9]*
 kustomize-guestbook.[0-9]*
 podinfo.[0-9]*
+
+bin/

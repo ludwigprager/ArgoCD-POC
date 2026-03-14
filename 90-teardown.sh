@@ -4,11 +4,9 @@ set -eu
 BASEDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 cd $BASEDIR
 
-source functions.sh
-source set-env.sh
-
-#set -x
 set +e
+
+source ./.env
 
 ./k3d cluster delete $CLUSTERS || true
 
