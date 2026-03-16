@@ -6,7 +6,7 @@ cd $BASEDIR
 
 source ./.env
 
-wget -nc https://github.com/argoproj/argo-cd/raw/v2.7.1/manifests/install.yaml
+wget -nc https://github.com/argoproj/argo-cd/raw/v3.3.4/manifests/install.yaml
 # modify args to argocd server:
 my_args=" \ \ \ \ \ \ \ \ - --insecure\n        - --rootpath\n        - /argocd"
 #$SED "/.*\/usr\/local\/bin\/argocd-server/a ${my_args}" install.yaml > install.yaml.modified

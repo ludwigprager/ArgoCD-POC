@@ -57,3 +57,15 @@ The bash scripts adhere to the following principles:
 - idempotent
 - exit on first error
 - independent of the caller's working directory
+
+
+## List k3s images
+
+```
+curl -s https://registry.hub.docker.com/v2/repositories/rancher/k3s/tags?page_size=100 | jq -r '.results[].name'
+```
+
+# References
+https://github.com/argoproj/argocd-example-apps/  
+https://github.com/stefanprodan/podinfo  
+https://hub.docker.com/r/rancher/k3s/tags  

@@ -12,3 +12,5 @@ cd $BASEDIR
 ./40-start-a-k8s-cluster.sh
 ./50-install-argocd-k8s.sh
 ./60-register-applications.sh
+
+# ./test-ingress.sh

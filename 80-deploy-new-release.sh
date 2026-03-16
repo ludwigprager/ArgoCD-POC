@@ -7,13 +7,14 @@ cd $BASEDIR
 source ./.env
 
 #$SED -i 's@tag: 6.3.5@tag: 6.3.6@g' podinfo/values.yaml
-sed -i 's@tag: 6.3.5@tag: 6.3.6@g' podinfo/values.yaml
+#sed -i 's@tag: 6.3.5@tag: 6.3.6@g' podinfo/values.yaml
+sed -i 's@tag: 6.11.0@tag: 6.11.1@g' podinfo/values.yaml
 
 pushd podinfo/
 
 git add .
 
-git commit -m "Upgrade to 6.3.6" || true
+git commit -m "Upgrade to 6.11.1" || true
 
 git push
 popd
