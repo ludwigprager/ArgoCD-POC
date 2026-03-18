@@ -7,14 +7,6 @@ cd $BASEDIR
 source ./.env
 
 
-# install k3d
-if [[ ! -f ./k3d ]]; then
-  export K3D_INSTALL_DIR=${BASEDIR:-$(pwd)}
-  export USE_SUDO='false'
-  export PATH=$PATH:${BASEDIR} # k3d install fails otherwise
-  curl -s https://raw.githubusercontent.com/k3d-io/k3d/main/install.sh | TAG=v5.7.4 bash
-fi
-
 K3S_TAG=v1.25.7-k3s1
 K3S_TAG=v1.32.0-k3s1
 K3S_TAG=v1.28.8-k3s1

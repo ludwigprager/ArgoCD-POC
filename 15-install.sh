@@ -52,10 +52,12 @@ if [[ ! -f "${ARGOCD_POC_ROOT}/bin/.checkpoint-yq" ]]; then
   touch "${ARGOCD_POC_ROOT}/bin/.checkpoint-yq"
 fi
 
-if [[ ! -f ./bin/k3d ]]; then
-  export K3D_INSTALL_DIR="${BASEDIR:-$(pwd)}/bin"
+# install k3d
+if [[ ! -f ./k3d ]]; then
+  export K3D_INSTALL_DIR="${BASEDIR:-$(pwd)}/bin/"
   export USE_SUDO='false'
-  export PATH=$PATH:${K3D_INSTALL_DIR}
-  curl -s https://raw.githubusercontent.com/k3d-io/k3d/main/install.sh | TAG=v5.9.0 bash
+  export PATH=$PATH:${BASEDIR} # k3d install fails otherwise
+  curl -s https://raw.githubusercontent.com/k3d-io/k3d/main/install.sh | TAG=v5.7.4 bash
 fi
+
 
