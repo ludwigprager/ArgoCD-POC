@@ -52,12 +52,10 @@ if [[ ! -f "${ARGOCD_POC_ROOT}/bin/.checkpoint-yq" ]]; then
   touch "${ARGOCD_POC_ROOT}/bin/.checkpoint-yq"
 fi
 
+if [[ ! -f ./bin/k3d ]]; then
+  export K3D_INSTALL_DIR="${BASEDIR:-$(pwd)}/bin"
+  export USE_SUDO='false'
+  export PATH=$PATH:${K3D_INSTALL_DIR}
+  curl -s https://raw.githubusercontent.com/k3d-io/k3d/main/install.sh | TAG=v5.9.0 bash
+fi
 
-
-## k9s
-#
-#if [[ ! -f "${ARGOCD_POC_ROOT}/bin/k9s" ]]; then
-#  curl -sL https://github.com/derailed/k9s/releases/download/v0.50.18/k9s_Linux_amd64.tar.gz | tar -xzvf - -C ./bin/
-##./bin/k9s --version
-#fi
-#

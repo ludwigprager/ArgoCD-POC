@@ -9,9 +9,7 @@ source ./.env
 wget -nc https://github.com/argoproj/argo-cd/raw/v3.3.4/manifests/install.yaml
 # modify args to argocd server:
 my_args=" \ \ \ \ \ \ \ \ - --insecure\n        - --rootpath\n        - /argocd"
-#$SED "/.*\/usr\/local\/bin\/argocd-server/a ${my_args}" install.yaml > install.yaml.modified
 sed "/.*\/usr\/local\/bin\/argocd-server/a ${my_args}" install.yaml > install.yaml.modified
-
 
 kubectl --context=k3d-argo-intern \
   apply -f install.yaml.modified -n argocd \
@@ -20,10 +18,6 @@ kubectl --context=k3d-argo-intern \
 kubectl --context=k3d-argo-intern \
   apply -f manifest/ingress.argocd.yaml \
   || true
-
-# -n argocd \
-
-#POD=$(kubectl get pod -l app.kubernetes.io/name=argocd-server -o jsonpath="{.items[0].metadata.name}")
 
 while [[ $(kubectl get pods -nargocd -l app.kubernetes.io/name=argocd-server \
            -o 'jsonpath={..status.conditions[?(@.type=="Ready")].status}') \

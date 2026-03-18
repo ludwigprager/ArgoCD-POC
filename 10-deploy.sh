@@ -4,6 +4,8 @@ set -eu
 BASEDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 cd $BASEDIR
 
+start=$(date +%s.%N)
+
 ./14-env.sh
 ./15-install.sh
 
@@ -14,3 +16,8 @@ cd $BASEDIR
 ./60-register-applications.sh
 
 # ./test-ingress.sh
+
+end=$(date +%s.%N)
+
+elapsed=$(echo "$end - $start" | bc)
+printf "Execution time: %.3f seconds\n" "$elapsed"
