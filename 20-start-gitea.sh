@@ -13,8 +13,6 @@ USER_UID=$(id -u)
 USER_GID=$(id -g)
 EOF
 
-envsubst < container/gitea.app.ini.tpl > container/gitea.app.ini
-mkdir -p container/gitea-data/
 docker compose --project-directory container up -d
 
 is_healthy() {
