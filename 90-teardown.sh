@@ -8,7 +8,7 @@ set +e
 
 source ./.env
 
-./k3d cluster delete $CLUSTERS || true
+k3d cluster delete $CLUSTERS || true
 
 MY_RANDOM=$RANDOM
 mv kubeconfig kubeconfig.${MY_RANDOM}
