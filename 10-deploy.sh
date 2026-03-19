@@ -19,5 +19,11 @@ start=$(date +%s.%N)
 
 end=$(date +%s.%N)
 
+# Calculate elapsed time in seconds with fractions
 elapsed=$(echo "$end - $start" | bc)
-printf "Execution time: %.3f seconds\n" "$elapsed"
+
+# Convert to minutes and seconds
+minutes=$(echo "$elapsed/60" | bc)
+seconds=$(echo "$elapsed - $minutes*60" | bc)
+
+printf "Execution time: %d minutes %.3f seconds\n" "$minutes" "$seconds"

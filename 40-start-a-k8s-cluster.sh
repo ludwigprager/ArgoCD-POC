@@ -17,7 +17,7 @@ for cluster in $CLUSTERS; do
 
   envsubst < k3d-config/${cluster}.yaml.tpl > k3d-config/${cluster}.yaml
 
-  ./k3d cluster create $cluster \
+  k3d cluster create $cluster \
     --config k3d-config/$cluster.yaml \
     --image rancher/k3s:${K3S_TAG} \
       --servers 1 \
