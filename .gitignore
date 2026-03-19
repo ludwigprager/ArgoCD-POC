@@ -25,3 +25,5 @@ kustomize-guestbook.[0-9]*
 podinfo.[0-9]*
 
 bin/
+
+container/gitea-data/

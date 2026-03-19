@@ -19,9 +19,9 @@ services:
       - GITEA__server__ROOT_URL=http://${GITEA}:3000
       - ONLY_ALLOW_PUSH_IF_GITEA_ENVIRONMENT_SET=false
       - GITEA__security__INSTALL_LOCK=true   # required - marks gitea as installed
-      - GITEA_ADMIN_USERNAME=lp              # optional - creates first admin
-      - GITEA_ADMIN_PASSWORD=geheim
-      - GITEA_ADMIN_EMAIL=test@lp.com
+#     - GITEA_ADMIN_USERNAME=lp              # optional - creates first admin
+#     - GITEA_ADMIN_PASSWORD=geheim
+#     - GITEA_ADMIN_EMAIL=test@lp.com
     restart: unless-stopped
     ports:
       - '8022:22'

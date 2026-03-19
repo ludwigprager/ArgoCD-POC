@@ -15,7 +15,9 @@ mv kubeconfig kubeconfig.${MY_RANDOM}
 
 for app in ${APPS}; do
   mv ${app} ${app}.${MY_RANDOM}
+  mv container/gitea-data/ container/gitea-data.${MY_RANDOM}/
 done
 
 docker compose --project-directory container down
+
 

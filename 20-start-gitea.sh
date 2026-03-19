@@ -31,13 +31,14 @@ is_healthy() {
 
 while ! is_healthy gitea; do sleep 1; done
 
-#count=$(docker exec -it ${GITEA} su git bash -c "gitea admin user list" | grep 'lp.*test@lp.com' | wc -l)
-#
-#echo count: $count
-#if [[ $count -ne 1 ]]; then
-#  docker exec -it ${GITEA} su git bash -c "gitea admin user create --username ${GITEA_LP_USER} --password ${GITEA_LP_PASSWORD} --email test@lp.com"
-#
-#fi
+count=$(docker exec -it ${GITEA} su git bash -c "gitea admin user list" | grep 'lp.*test@lp.com' | wc -l)
+
+echo count: $count
+if [[ $count -ne 1 ]]; then
+  docker exec -it ${GITEA} su git bash -c \
+	  "gitea admin user create --username ${GITEA_LP_USER} --password ${GITEA_LP_PASSWORD} --email test@lp.com"
+
+fi
 
 
 if [[ ! -f key ]]; then
