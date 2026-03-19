@@ -9,9 +9,12 @@ source ./.env
 
 cat << EOF > container/.env
 GITEA=${GITEA}
+USER_UID=$(id -u)
+USER_GID=$(id -g)
 EOF
 
 envsubst < container/gitea.app.ini.tpl > container/gitea.app.ini
+mkdir -p container/gitea-data/
 docker compose --project-directory container up -d
 
 is_healthy() {
@@ -28,12 +31,13 @@ is_healthy() {
 
 while ! is_healthy gitea; do sleep 1; done
 
-count=$(docker exec -it ${GITEA} su git bash -c "gitea admin user list" | grep 'lp.*test@lp.com' | wc -l)
-
-echo count: $count
-if [[ $count -ne 1 ]]; then
-  docker exec -it ${GITEA} su git bash -c "gitea admin user create --username ${GITEA_LP_USER} --password ${GITEA_LP_PASSWORD} --email test@lp.com"
-fi
+#count=$(docker exec -it ${GITEA} su git bash -c "gitea admin user list" | grep 'lp.*test@lp.com' | wc -l)
+#
+#echo count: $count
+#if [[ $count -ne 1 ]]; then
+#  docker exec -it ${GITEA} su git bash -c "gitea admin user create --username ${GITEA_LP_USER} --password ${GITEA_LP_PASSWORD} --email test@lp.com"
+#
+#fi
 
 
 if [[ ! -f key ]]; then

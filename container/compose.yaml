@@ -2,11 +2,15 @@
 services:
   gitea:
     image: 'gitea/gitea:1.25.5'
+#   user: "${USER_UID}:${USER_GID}"  # match your host UID:GID
+
     hostname: "${GITEA}"
     container_name: ${GITEA}
+#   command: ["gitea", "web", "--config", "/app.ini"]
     environment:
-      - USER_UID=1000
-      - USER_GID=1000
+      - USER=git
+      - USER_UID=$USER_UID
+      - USER_GID=$USER_GID
       - GITEA__server__DOMAIN=${GITEA}
       - GITEA__server__SSH_DOMAIN=${GITEA}
       - GITEA__server__HTTP_PORT=3000
@@ -14,6 +18,10 @@ services:
       - GITEA__server__SSH_PORT=8022
       - GITEA__server__ROOT_URL=http://${GITEA}:3000
       - ONLY_ALLOW_PUSH_IF_GITEA_ENVIRONMENT_SET=false
+      - GITEA__security__INSTALL_LOCK=true   # required - marks gitea as installed
+      - GITEA_ADMIN_USERNAME=lp              # optional - creates first admin
+      - GITEA_ADMIN_PASSWORD=geheim
+      - GITEA_ADMIN_EMAIL=test@lp.com
     restart: unless-stopped
     ports:
       - '8022:22'
@@ -24,5 +32,5 @@ services:
       timeout: 5s
       retries: 5
     volumes:
-      - ./gitea.app.ini:/data/gitea/conf/app.ini
-
+#     - ./gitea.app.ini:/app.ini
+      - ./gitea-data:/data
