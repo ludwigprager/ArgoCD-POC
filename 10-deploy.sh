@@ -10,7 +10,7 @@ start=$(date +%s.%N)
 ./15-install.sh
 
 ./20-start-gitea.sh
-bash -x ./30-create-environment-repositories.sh
+./30-create-environment-repositories.sh
 ./40-start-a-k8s-cluster.sh
 ./50-install-argocd-k8s.sh
 ./60-register-applications.sh
