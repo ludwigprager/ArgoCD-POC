@@ -12,12 +12,12 @@ export GIT_SSH_COMMAND="ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChec
 
 
 # from kcp-pot
-export ARGOCD_POC_ROOT=${ARGOCD_POC_ROOT}
+export ARGOCD_MOD_ROOT=${ARGOCD_MOD_ROOT}
 
 
-PATH=${ARGOCD_POC_ROOT}/bin:${ARGOCD_POC_ROOT}/bin/.krew/bin:${PATH}
+PATH=${ARGOCD_MOD_ROOT}/bin:${ARGOCD_MOD_ROOT}/bin/.krew/bin:${PATH}
 
-alias k=$ARGOCD_POC_ROOT/bin/kubectl
+alias k=$ARGOCD_MOD_ROOT/bin/kubectl
 
 # from set-env.sh
 

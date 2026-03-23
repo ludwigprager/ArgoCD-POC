@@ -7,7 +7,7 @@ cd $BASEDIR
 mkdir -p bin/
 
 export BASEDIR
-export ARGOCD_POC_ROOT=$(git rev-parse --show-toplevel)
+export ARGOCD_MOD_ROOT=$(git rev-parse --show-toplevel)
 export GOOS="$( uname | tr '[:upper:]' '[:lower:]' | grep -E 'linux|darwin' )"
 export GOARCH="$( uname -m | sed 's/x86_64/amd64/ ; s/aarch64/arm64/' | grep -E 'amd64|arm64' )"
 

@@ -1,4 +1,4 @@
-# ArgoCD POC
+# ArgoCD Module
 
 ## Description
 
@@ -11,20 +11,20 @@ remove most traces when applied after use.
 Clone this repo and run the start script:
 
 ```
-git clone https://github.com/ludwigprager/ArgoCD-POC.git
-./ArgoCD-POC/10-deploy.sh
+git clone https://github.com/ludwigprager/ArgoCD-Module.git
+./ArgoCD-Module/10-deploy.sh
 ```
 
 Display URL endpoints created by this poc:
 ```
-./ArgoCD-POC/print-console-links.sh 
+./ArgoCD-Module/print-console-links.sh 
 ```
 
 ## Prerequisites
 - a linux machine. Any distribution should work fine. Or macOS with Darwin.   
 - docker, jq, yq, wget installed
 
-## How this POC works
+## How this Module works
 
 ArgoCD surveys a git repository outside of the cluster.
 In regular intervals, it tests for a drift in configuration
